@@ -9,27 +9,24 @@ pipeline {
         }
 
         stage('Display Message') {
-                    steps {
-                        // Display a message indicating successful Git checkout
-                        echo 'Git checkout successful! Repository cloned.'
-                    }
-                }
+            steps {
+                // Display a message indicating successful Git checkout
+                echo 'Git checkout successful! Repository cloned.'
+            }
+        }
 
         stage('Build') {
             steps {
-                bat 'mvn clean install'
+                withEnv(["PATH+MAVEN=C:\\Program Files\\apache-maven-3.9.9\\bin"]) {
+                    bat 'mvn clean install'
+                }
             }
         }
 
         stage('mvn clean package successful passed') {
-                    steps {
-                        // Display a message indicating successful Git checkout
-                        echo 'mvn clean install!'
-                    }
-                }
-
-
+            steps {
+                echo 'mvn clean install successful!'
+            }
+        }
     }
-
-    //comment test
 }
