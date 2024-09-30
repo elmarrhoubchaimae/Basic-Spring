@@ -17,7 +17,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                withEnv(["PATH+MAVEN=C:\\Program Files\\apache-maven-3.9.9\\bin"]) {
+                withEnv(["PATH+MAVEN=C:\\Program Files\\apache-maven-3.9.9"]) {
                     bat 'mvn clean install'
                 }
             }
